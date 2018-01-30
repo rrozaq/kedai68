@@ -22,18 +22,18 @@
 </footer>
 <!-- / footer -->
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/jquery.easing.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/custom.js"></script>
-<script src="../contactform/contactform.js"></script>
-<script src="../js/owl.carousel.js"></script>
-<script src="../js/owl.autoplay.js"></script>
-<script src="../js/owl.animate.js"></script>
-<script src="../js/owl.support.js"></script>
-<script src="../js/owl.navigation.js"></script>
-<script src="../js/owl.autoheight.js"></script>
-<script src="../js/owl.autorefresh.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.easing.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="assets/contactform/contactform.js"></script>
+<script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/owl.autoplay.js"></script>
+<script src="assets/js/owl.animate.js"></script>
+<script src="assets/js/owl.support.js"></script>
+<script src="assets/js/owl.navigation.js"></script>
+<script src="assets/js/owl.autoheight.js"></script>
+<script src="assets/js/owl.autorefresh.js"></script>
 
 
 

@@ -9,15 +9,15 @@
   <meta name="keywords" content="Awful Tasty Food And Unique Concept Balinese Restaurant">
 
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link href="../css/owl.carousel.css" rel="stylesheet">
-  <link href="../css/owl.carousel.min.css" rel="stylesheet">
-  <link href="../css/owl.theme.default.css" rel="stylesheet">
-  <link href="../css/owl.theme.default.min.css" rel="stylesheet">
-  <link href="../css/owl.theme.green.css" rel="stylesheet">
-  <link href="../css/animate.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link href="assets/css/owl.carousel.css" rel="stylesheet">
+  <link href="assets/css/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/css/owl.theme.default.css" rel="stylesheet">
+  <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+  <link href="assets/css/owl.theme.green.css" rel="stylesheet">
+  <link href="assets/css/animate.css" rel="stylesheet">
 
 
   <!-- =======================================================

@@ -76,7 +76,7 @@ All menus has cooked from fresh ingredients, fresh cook, fresh atmosphere.. keep
                 <div class="owl-carousel owl-theme col-sm-6 col-md-4">
                   <div class="item">
                   <div class=" thumbnail">
-                    <img src="img/res01.jpg" alt="...">
+                    <img src="assets/img/res01.jpg" alt="...">
                     <div class="caption">
                       <h3>Brandon James</h3>
                       <h5>Australia</h5>
