@@ -80,7 +80,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">Admin Panel</a>
+                <a class="navbar-brand" href="index">Admin Panel</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -307,11 +307,45 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="index.html">
+                        <a href="index">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">local_dining</i>
+                            <span>Food</span></a>
+                          <ul class="ml-menu">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Add Category</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Add Menu</span>
+                                </a>
+                            </li>
+                        </ul>
+                      </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">person</i>
+                            <span>Workers</span></a>
+                          <ul class="ml-menu">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Add Workers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>List Workers</span>
+                                </a>
+                            </li>
+                        </ul>
+                      </li>
                 </ul>
             </div>
             <!-- #Menu -->
