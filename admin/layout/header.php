@@ -16,30 +16,69 @@
   $classerror ="";
 
 
+//category
+          if (isset($_POST['add'])) {
+              $name = $_POST['name'];
 
-  if (isset($_POST['add'])) {
-      $name = $_POST['name'];
+              if (add_category($name)) {
+                  header('Location:category.php');
+              }else {
+                $classerror = "error";
+                $error = "data gagal di tambahkan";
+              }
+          }
 
-      if (add_category($name)) {
-          header('Location:category.php');
-      }else {
-        $classerror = "error";
-        $error = "data gagal di tambahkan";
+        //mengedit kategori
+          if (isset($_POST['edit'])) {
+              $name = $_POST['name'];
+              $id = $_POST['id'];
+
+              if (edit_category($name,$id)) {
+                  header('Location:category.php');
+              }else {
+                $classerror = "error";
+                $error = "data gagal di tambahkan";
+              }
+          }
+
+
+//menu food
+if (isset($_POST['add_menu'])) {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $kategori = $_POST['kategori'];
+    $price = $_POST['price'];
+    $price = $price."000";
+
+    $target_dir = "../assets/img/";
+    $target_file = $target_dir . basename($_FILES["img"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    $check = getimagesize($_FILES["img"]["tmp_name"]);
+
+    if ($check !== false) {
+      if (file_exists($target_file)) {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            if (add_menu($name,$description,$kategori,$price,$target_file)) {
+                header('Location:menu');
+            }else {
+              $classerror = "error";
+              $error = "data gagal di tambahkan";
+            }
+        }else{
+          $error = "Sorry, there was an error uploading your file.";
+        }
+      }else{
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
       }
+  }else {
+    $error = "File is not an image.";
+    $uploadOk = 0;
   }
+}
 
-//mengedit kategori
-  if (isset($_POST['edit'])) {
-      $name = $_POST['name'];
-      $id = $_POST['id'];
-
-      if (edit_category($name,$id)) {
-          header('Location:category.php');
-      }else {
-        $classerror = "error";
-        $error = "data gagal di tambahkan";
-      }
-  }
 ?>
 
 
@@ -68,6 +107,9 @@
 
     <!-- Morris Chart Css-->
     <link href="./plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <link href="./plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="./css/style.css" rel="stylesheet">
@@ -357,7 +399,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="menu">
                                     <span>Menu</span>
                                 </a>
                             </li>

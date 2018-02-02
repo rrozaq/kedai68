@@ -1,6 +1,6 @@
 <?php require_once 'layout/header.php';
 
-$data = getcategory();
+$data = getmenu();
 
 
 
@@ -15,7 +15,7 @@ $data = getcategory();
                   <div class="card">
                       <div class="header">
                           <h2>
-                              Category
+                              Menu
 
                           </h2>
                           <ul class="header-dropdown m-r--5">
@@ -24,7 +24,7 @@ $data = getcategory();
                                       <i class="material-icons">add</i>
                                   </a>
                                   <ul class="dropdown-menu pull-right">
-                                      <li><a href="add_category">Add Category</a></li>
+                                      <li><a href="add_menu">Add Menu</a></li>
                                   </ul>
                               </li>
                           </ul>
@@ -34,7 +34,7 @@ $data = getcategory();
                               <thead>
                                   <tr>
                                       <th>#</th>
-                                      <th>Category Name</th>
+                                      <th>Menu Name</th>
                                       <th>Action</th>
                                   </tr>
                               </thead>
@@ -43,8 +43,8 @@ $data = getcategory();
 
                                   <tr>
                                       <th scope="row"><?php echo $no; ?></th>
-                                      <td><?php echo $row['nama_kategori']; ?></td>
-                                      <td><a href="edit_category?id=<?php echo $row['id_kategori']; ?>" class="btn btn-info waves-effect">Edit</a> <a href="delete_category?id=<?php echo $row['id_kategori']; ?>" class="btn btn-danger waves-effect">Delete</a></td>
+                                      <td><?php echo $row['nama_menu']; ?></td>
+                                      <td><a href="edit_menu?id=<?php echo $row['id_kategori']; ?>" class="btn btn-info waves-effect">Edit</a> <a href="delete_menu?id=<?php echo $row['id_kategori']; ?>" class="btn btn-danger waves-effect">Delete</a></td>
 
                                   </tr>
                                 <?php $no++; } ?>

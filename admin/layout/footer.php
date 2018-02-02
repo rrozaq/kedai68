@@ -26,7 +26,7 @@
 
 
     <!-- JQuery Steps Plugin Js -->
-    <script src="../../plugins/jquery-steps/jquery.steps.js"></script>
+    <script src="./plugins/jquery-steps/jquery.steps.js"></script>
 
     <!-- ChartJs -->
     <script src="./plugins/chartjs/Chart.bundle.js"></script>
@@ -44,10 +44,20 @@
     <!-- Sparkline Chart Plugin Js -->
     <script src="./plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
+    <!-- Moment Plugin Js -->
+    <script src="./plugins/momentjs/moment.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="./plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
     <!-- Custom Js -->
     <script src="./js/admin.js"></script>
     <script src="./js/pages/index.js"></script>
     <script src="./js/pages/forms/form-validation.js"></script>
+    <script src="./js/pages/forms/basic-form-elements.js"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="./plugins/autosize/autosize.js"></script>
 
     <!-- Demo Js -->
     <script src="./js/demo.js"></script>
