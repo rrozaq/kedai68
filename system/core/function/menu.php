@@ -12,7 +12,7 @@
  }
 
  function percategory($id){
-   $query = "SELECT * FROM kategori WHERE id_kategori = $id";
+   $query = "SELECT * FROM kategori WHERE id_kategori = '$id'";
    return run($query);
  }
 

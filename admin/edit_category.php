@@ -1,6 +1,6 @@
 <?php
 require_once 'layout/header.php';
-$id = isset($_GET['id']);
+$id = $_GET['id'];
 $data = percategory($id);
 $data = mysqli_fetch_assoc($data);
 
