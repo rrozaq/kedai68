@@ -3,14 +3,32 @@
       header("location:login");
   }
 
+
+
+//bagian tambah data di category
   $profile = getprofile($_SESSION['user']);
   $profile = mysqli_fetch_assoc($profile);
+
+  $error = "";
+  $classerror ="";
+
+
+
+  if (isset($_POST['submit'])) {
+      $name = $_POST['name'];
+
+      if (add_category($name)) {
+          header('Location:category.php');
+      }else {
+        $classerror = "error";
+        $error = "data gagal di tambahkan";
+      }
+  }
 ?>
 
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -44,7 +62,7 @@
 
 <body class="theme-red">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
+    <!-- <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
                 <div class="spinner-layer pl-red">
@@ -58,7 +76,7 @@
             </div>
             <p>Please wait...</p>
         </div>
-    </div>
+    </div> -->
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
@@ -318,13 +336,13 @@
                             <span>Food</span></a>
                           <ul class="ml-menu">
                             <li>
-                                <a href="javascript:void(0);">
-                                    <span>Add Category</span>
+                                <a href="category">
+                                    <span>Category</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
-                                    <span>Add Menu</span>
+                                    <span>Menu</span>
                                 </a>
                             </li>
                         </ul>
@@ -352,7 +370,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                    &copy; <?php echo date('Y'); ?> <a href="../index">Kedai68</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5

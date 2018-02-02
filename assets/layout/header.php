@@ -1,3 +1,5 @@
+<?php require_once 'system/core/init.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 

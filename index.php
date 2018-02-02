@@ -1,4 +1,6 @@
-<?php require_once 'assets/layout/header.php'; ?>
+<?php require_once 'assets/layout/header.php';
+$data = getcategory();
+?>
   <!--about-->
   <section id="about" class="section-padding">
     <div class="container">
@@ -32,12 +34,9 @@ All menus has cooked from fresh ingredients, fresh cook, fresh atmosphere.. keep
         <div class="col-md-12  text-center" id="menu-flters">
           <ul>
             <li><a class="filter active" data-filter=".menu-restaurant">Show All</a></li>
-            <li><a class="filter" data-filter=".maincourse">Main Course</a></li>
-            <li><a class="filter" data-filter=".soup">Soup & Vegetable</a></li>
-            <li><a class="filter" data-filter=".rice">Rice & Noodles</a></li>
-            <li><a class="filter" data-filter=".rice">Appetizers & Side Dish</a></li>
-            <li><a class="filter" data-filter=".rice">Beverages</a></li>
-            <li><a class="filter" data-filter=".rice">Desert</a></li>
+            <?php while ($row = mysqli_fetch_assoc($data)) {?>
+            <li><a class="filter" data-filter=".<?php echo substr($row['nama_kategori'],0,4)?>"><?php echo $row['nama_kategori'] ?></a></li>
+          <?php }?>
           </ul>
         </div>
 

@@ -31,10 +31,3 @@ function getprofile($user){
   $query = "SELECT * FROM users WHERE username = '$user'";
   return run($query);
 }
-
-
-function run($query){
-  global $link;
-  $result = mysqli_query($link,$query);
-  return $result;
-}

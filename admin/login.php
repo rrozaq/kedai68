@@ -2,7 +2,7 @@
 
 $login = isset($_SESSION['user']);
 if ($login != null) {
-  header('location:dashboard');
+  header('location:index');
 }
           $classerror ="";
           $errorpass = "";
