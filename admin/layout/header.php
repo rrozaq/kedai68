@@ -50,34 +50,15 @@ if (isset($_POST['add_menu'])) {
     $price = $_POST['price'];
     $price = $price."000";
 
-    $target_dir = "../assets/img/";
-    $target_file = $target_dir . basename($_FILES["img"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-    $check = getimagesize($_FILES["img"]["tmp_name"]);
-
-    if ($check !== false) {
-      if (file_exists($target_file)) {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            if (add_menu($name,$description,$kategori,$price,$target_file)) {
-                header('Location:menu');
-            }else {
-              $classerror = "error";
-              $error = "data gagal di tambahkan";
-            }
-        }else{
-          $error = "Sorry, there was an error uploading your file.";
-        }
-      }else{
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-      }
-  }else {
-    $error = "File is not an image.";
-    $uploadOk = 0;
+    if (add_menu($name,$description,$kategori,$price,$target_file)) {
+      header('Location:menu');
+    }else {
+      $classerror = "error";
+      $error = "data gagal di tambahkan";
+    }
   }
-}
+
+    //upload gambar menu
 
 ?>
 

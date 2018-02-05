@@ -57,14 +57,6 @@ $cate = getcategory();
                                     </div>
                                   </div>
 
-                                  <div class="form-group form-float">
-                                      <div class="form-line <?php echo $classerror?>">
-                                          <input type="file" class="form-control" name="img" required>
-                                      </div>
-                                  </div>
-                                  
-
-
                               <button class="btn btn-primary waves-effect" name="add_menu" type="submit">SUBMIT</button>
                           </form>
                       </div>

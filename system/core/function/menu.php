@@ -53,3 +53,8 @@ function delete_menu($id){
   $query = "DELETE FROM menu WHERE id_menu = $id";
   return run($query);
 }
+
+function add_img_menu($img,$idmenu){
+  $query = "UPDATE menu SET img='$img' WHERE id_menu=$idmenu";
+  return run($query);
+}
