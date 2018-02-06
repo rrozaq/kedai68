@@ -1,5 +1,6 @@
 <?php require_once 'assets/layout/header.php';
 $data = getcategory();
+$menujoin = getmenujoin();
 ?>
   <!--about-->
   <section id="about" class="section-padding">
@@ -35,24 +36,22 @@ All menus has cooked from fresh ingredients, fresh cook, fresh atmosphere.. keep
           <ul>
             <li><a class="filter active" data-filter=".menu-restaurant">Show All</a></li>
             <?php while ($row = mysqli_fetch_assoc($data)) {?>
-            <li><a class="filter" data-filter=".<?php echo substr($row['nama_kategori'],0,4)?>"><?php echo $row['nama_kategori'] ?></a></li>
+            <li><a class="filter" data-filter=".<?php $name = $row['nama_kategori']; $name = str_replace('&', 'and', $name); echo str_replace(' ', '-', $name)?>"><?php echo $row['nama_kategori'] ?></a></li>
           <?php }?>
           </ul>
         </div>
 
         <div id="menu-wrapper">
-
-          <div class="maincourse menu-restaurant">
+          <?php while ($menu = mysqli_fetch_assoc($menujoin)) { ?>
+          <div class="<?php $name = $menu['nama_kategori']; $name = str_replace('&', 'and', $name); echo str_replace(' ', '-', $name)?> menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg">Bebek Goreng Kremes</a>
+              <a class="menu-title" href="#" data-meal-img="assets/img/<?=$menu['img']?>"><?=$menu['nama_menu']?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">Rp.20.99</span>
+              <span class="menu-price">Rp.<?=$menu['harga']?></span>
             </span>
-            <span class="menu-subtitle">Crispy fried duck, serve with steam rice,
-                boiled vegetable in peanut sauce,
-                and raw shallot & lemongrass sambal</span>
+            <span class="menu-subtitle"><?=substr($menu['des_menu'],0,150)?></span>
           </div>
-
+        <?php } ?>
 
         </div>
 

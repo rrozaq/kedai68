@@ -2,32 +2,7 @@
 
 $data = getmenu();
 
-$succsess = "";
-if (isset($_POST['add_img'])) {
-    $name = $_FILES['img']['name'];
-    $error_img = $_FILES['img']['error'];
-    $cname = $name; //rename file
-    $folder = "images/";
-    $temp = $_FILES['img']['tmp_name'];
-    $idmenu = $_POST['id_menu'];
 
-
-  if (!empty($name)) {
-    if (move_uploaded_file($temp,$folder.$cname)) {
-        if (add_img_menu($cname,$idmenu)) {
-          $succsess = "Successfully added photos";
-        }else {
-          $error = "There is something wrong when saving the image in the database, contact the developer to fix";
-        }
-    }else {
-      $error = "Can't Upload Images, Call Developer for fix this error";
-    }
-  }else {
-      $error = "Photos can not be empty";
-  }
-
-
-}
 
 
 ?>

@@ -4,6 +4,7 @@ $id = $_GET['id'];
 $data = percategory($id);
 $data = mysqli_fetch_assoc($data);
 
+
 ?>
 <section class="content">
     <div class="container-fluid">

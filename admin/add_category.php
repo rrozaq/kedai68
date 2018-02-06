@@ -1,8 +1,6 @@
 <?php
 require_once 'layout/header.php';
 
-
-
 ?>
 <section class="content">
     <div class="container-fluid">

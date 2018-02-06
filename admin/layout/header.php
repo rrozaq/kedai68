@@ -16,41 +16,32 @@
   $classerror ="";
 
 
-//category
-          if (isset($_POST['add'])) {
-              $name = $_POST['name'];
 
-              if (add_category($name)) {
-                  header('Location:category.php');
-              }else {
-                $classerror = "error";
-                $error = "data gagal di tambahkan";
-              }
-          }
 
         //mengedit kategori
-          if (isset($_POST['edit'])) {
-              $name = $_POST['name'];
-              $id = $_POST['id'];
-
-              if (edit_category($name,$id)) {
-                  header('Location:category.php');
-              }else {
-                $classerror = "error";
-                $error = "data gagal di tambahkan";
-              }
-          }
+  if (isset($_POST['edit'])) {
+    $name = $_POST['name'];
+    $id = $_POST['id'];
+      if (edit_category($name,$id)) {
+          header('Location:category.php');
+      }else {
+          $classerror = "error";
+          $error = "data gagal di tambahkan";
+      }
+  }
 
 
 //menu food
+//add menu
 if (isset($_POST['add_menu'])) {
     $name = $_POST['name'];
+    $name = strtoupper($name);
     $description = $_POST['description'];
     $kategori = $_POST['kategori'];
     $price = $_POST['price'];
     $price = $price."000";
 
-    if (add_menu($name,$description,$kategori,$price,$target_file)) {
+    if (add_menu($name,$description,$kategori,$price)) {
       header('Location:menu');
     }else {
       $classerror = "error";
@@ -59,7 +50,50 @@ if (isset($_POST['add_menu'])) {
   }
 
     //upload gambar menu
+    $succsess = "";
+    if (isset($_POST['add_img'])) {
+        $name = $_FILES['img']['name'];
+        $error_img = $_FILES['img']['error'];
+        $cname = $name; //rename file
+        $folder = "images/";
+        $temp = $_FILES['img']['tmp_name'];
+        $idmenu = $_POST['id_menu'];
 
+
+      if (!empty($name)) {
+        if (move_uploaded_file($temp,$folder.$cname)) {
+            if (add_img_menu($cname,$idmenu)) {
+              $succsess = "Successfully added photos";
+              header('Location:menu');
+            }else {
+              $error = "There is something wrong when saving the image in the database, contact the developer to fix";
+            }
+        }else {
+          $error = "Can't Upload Images, Call Developer for fix this error";
+        }
+      }else {
+          $error = "Photos can not be empty";
+      }
+
+
+    }
+
+    //edit menu
+    if (isset($_POST['edit_menu'])) {
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $kategori = $_POST['kategori'];
+        $price = $_POST['price'];
+        $price = $price."000";
+        $idMenu = $_POST['id_menus'];
+
+        if (edit_menu($name,$description,$kategori,$price,$idMenu)) {
+          header('Location:menu');
+        }else {
+          $classerror = "error";
+          $error = "data gagal di tambahkan";
+        }
+      }
 ?>
 
 
