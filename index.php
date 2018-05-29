@@ -1,6 +1,7 @@
 <?php require_once 'assets/layout/header.php';
 $data = getcategory();
 $menujoin = getmenujoin();
+$gettesti = gettesti();
 ?>
   <!--about-->
   <section id="about" class="section-padding">
@@ -45,7 +46,7 @@ All menus has cooked from fresh ingredients, fresh cook, fresh atmosphere.. keep
           <?php while ($menu = mysqli_fetch_assoc($menujoin)) { ?>
           <div class="<?php $name = $menu['nama_kategori']; $name = str_replace('&', 'and', $name); echo str_replace(' ', '-', $name)?> menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/<?=$menu['img']?>"><?=$menu['nama_menu']?></a>
+              <a class="menu-title" href="menu.php?menu=<?=$menu['id_menu']?>" data-meal-img="assets/img/<?=$menu['img']?>"><?=$menu['nama_menu']?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">Rp.<?=$menu['harga']?></span>
             </span>
@@ -70,20 +71,50 @@ All menus has cooked from fresh ingredients, fresh cook, fresh atmosphere.. keep
           </div>
           <div class="col-md-12" style="padding-bottom:60px;">
               <div class="row">
-
                 <div class="owl-carousel owl-theme col-sm-6 col-md-4">
+                  <?php while ($row = mysqli_fetch_assoc($gettesti)) {?>
                   <div class="item">
                   <div class=" thumbnail">
-                    <img src="assets/img/res01.jpg" alt="...">
+                    <img src="assets/testi/<?=$row['img']?>" alt="...">
                     <div class="caption">
-                      <h3>Brandon James</h3>
-                      <h5>Australia</h5>
-                      <p>Nothing fancy about this restaurant in terms of serving food but the food certainly was tasty. The staff were friendly and genuinely interested in getting to know their customer. Recommended the Mee Goreng Noodles, full of flavor but the portion is very small. So if you're really hungry i suggest ordering 2.</p>
+                      <h3><?=$row['name']?></h3>
+                      <h5><?=$row['country']?></h5>
+                      <p><?=$row['pesan']?></p>
                     </div>
                   </div>
                 </div>
-
+              <?php }?>
                 </div>
+
+
+<a style="margin-left:42%"  class="btn btn-lg btn-warning" data-toggle="modal" data-target="#testimodal"> Make Testimony</a>
+
+      <!-- Modal Make Testimony -->
+      <div class="modal fade " id="testimodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Testimony</h4>
+      </div>
+      <div class="modal-body">
+<form method="post" action="" enctype="multipart/form-data" id="testi">
+              <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" required value="">
+              <input type="text" name="country" id="country" class="form-control" placeholder="Input Your County" required value="">
+              <textarea name="pesan" rows="8" id="pesan" class="form-control" placeholder="Input Your message" cols="80" required></textarea>
+
+              <input type="file" name="img" id="img" placeholder="Your Photos" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="submit" name="send" class="btn btn-warning send">Send</button>
+      </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 
 
 

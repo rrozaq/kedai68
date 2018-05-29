@@ -34,6 +34,8 @@
 <script src="assets/js/owl.navigation.js"></script>
 <script src="assets/js/owl.autoheight.js"></script>
 <script src="assets/js/owl.autorefresh.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js" charset="utf-8"></script>
+<script src="assets/js/testi.js" charset="utf-8"></script>
 
 
 
@@ -47,10 +49,19 @@ animateOut: 'slideOutDown',
   loop:true,
   margin:10,
   autoplay:true,
-  autoplayTimeout:5000,
+  autoplayTimeout:2000,
   autoplayHoverPause:false
 });
 </script>
+
+<script type="text/javascript">
+$('#myModal').on('shown.bs.modal', function () {
+$('#myInput').focus()
+})
+
+
+</script>
+
 
 </body>
 

@@ -40,7 +40,6 @@ if (isset($_POST['add_menu'])) {
     $kategori = $_POST['kategori'];
     $price = $_POST['price'];
     $price = $price."000";
-
     if (add_menu($name,$description,$kategori,$price)) {
       header('Location:menu');
     }else {
@@ -128,6 +127,10 @@ if (isset($_POST['add_menu'])) {
 
     <!-- Custom Css -->
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/custom.css" rel="stylesheet">
+
+    <!-- chart js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="./css/themes/all-themes.css" rel="stylesheet" />
@@ -420,7 +423,7 @@ if (isset($_POST['add_menu'])) {
                             </li>
                         </ul>
                       </li>
-                    <li>
+                    <!-- <li>
                         <a href="#" class="menu-toggle">
                             <i class="material-icons">person</i>
                             <span>Workers</span></a>
@@ -436,7 +439,7 @@ if (isset($_POST['add_menu'])) {
                                 </a>
                             </li>
                         </ul>
-                      </li>
+                      </li> -->
                 </ul>
             </div>
             <!-- #Menu -->

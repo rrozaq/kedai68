@@ -1,15 +1,28 @@
-<?php require_once 'assets/layout/header.php'; ?>
+<?php require_once 'assets/layout/header.php';
+if (empty($_GET['menu'])) {
+  header('location:index.php');
+}
+$single = per_page($_GET['menu']);
+$single = mysqli_fetch_assoc($single);
+
+ ?>
+
 
   <!-- menu -->
   <section id="menu" class="section-padding">
     <div class="container">
         <div class="row">
           <div class="col-md-4">
-              <img src="assets/img/Bebek-Goreng-Kremes.jpg" alt="img\Bebek-Goreng-Kremes">
+            <?php if (strlen($single['img'])>0 ): ?>
+              <img width="300px" src="admin/images/<?=$single['img']?>" alt="Gambar makanan">
+            <?php else: ?>
+              <img src="assets/img/nf.png?>" alt="Gambar makanan">
+            <?php endif; ?>
           </div>
           <div class="col-md-6">
-            <h1>Ini Sebuah Judul</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h1><?=$single['nama_menu']?></h1>
+            <p><?=$single['des_menu']?></p>
+              <h5>Harga : <b>Rp.<?=$single['harga']?></b> </h5>
           </div>
         </div>
     </div>

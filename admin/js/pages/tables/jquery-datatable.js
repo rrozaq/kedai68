@@ -1,5 +1,7 @@
+
+
 $(function () {
-    $('.js-basic-example').DataTable({
+    $('.tablemenu').DataTable({
         responsive: true
     });
 

@@ -1,8 +1,51 @@
 <?php require_once 'layout/header.php';
 
-$data = getmenu();
+//pagination
+    $perpage = 6;
+    $disablepre ="";
+    $disablenext ="";
+
+	if (isset($_GET["page"])) {
+			$page = $_GET["page"];
+	}else {
+		$page = 1;
+	}
+
+//membuat start
+if ($page>1) {
+    $start = ($page*$perpage)-$perpage;
+
+}else {
+    $start = 0;
+    $disablepre = "disabled";
+    $disablenext = "disabled";
+}
 
 
+$data = getmenu($start,$perpage);
+$total = total();
+$t_page = ceil($total/$perpage);
+
+
+            if ($page!=$t_page) {
+                $disablenext = "";
+            }else {
+                $disablenext = "disabled";
+            }
+            $pageplus = "";
+            $pagemin = "";
+            if ($disablenext != "disabled" ) {
+              $count = $page+1;
+               $pageplus = "href=?page=".$count;
+            }elseif ($disablepre != "disabled") {
+              $count = $page-1;
+                  $pagemin = "href=?page=$count";
+            }else {
+                $pagemin = "";
+                $pageplus = "";
+            }
+
+            ?>
 
 
 ?>
@@ -95,8 +138,27 @@ $data = getmenu();
                                   </div>
 
                                 <?php $no++; } ?>
+
                               </tbody>
                           </table>
+
+                          <div aria-label="Page navigation" class=" pagi-center">
+                            <ul class="pagination">
+                                <li class="<?=$disablepre?>">
+                                <a <?=$pagemin?> aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                                </li>
+                                <?php $i = 1; while ($i <= $t_page) {?>
+                                <li><a href="?page=<?=$i?>"><?=$i?></a></li>
+                                <?php $i++;} ?>
+                                <li  class="<?=$disablenext?>">
+                                <a <?=$pageplus?> aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                                </li>
+                            </ul>
+                                </div>
                       </div>
                   </div>
               </div>

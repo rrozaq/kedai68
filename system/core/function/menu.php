@@ -29,14 +29,21 @@
 //bagian menu
 
 function add_menu($name,$description,$kategori,$price){
-   $query = "INSERT INTO menu (nama_menu,des_menu,harga,id_kategori) VALUES('$name','$description','$price',$kategori)";
-
+   $query = "INSERT INTO menu (nama_menu,des_menu,harga,id_kategori,img) VALUES('$name','$description','$price',$kategori,'')";
    return run($query);
 }
 
-function getmenu(){
-  $query = "SELECT * FROM menu";
+function getmenu($start,$perpage){
+  $query = "SELECT * FROM menu ORDER BY create_at DESC LIMIT $start,$perpage";
   return run($query);
+}
+
+function total(){
+  global $link;
+    $query = "SELECT * FROM menu ";
+    $result = mysqli_query($link,$query);
+    $total = mysqli_num_rows($result);
+    return($total);
 }
 
 function permenu($id){
@@ -62,5 +69,10 @@ function add_img_menu($img,$idmenu){
 //front end
 function getmenujoin(){
   $query = "SELECT * FROM menu INNER JOIN kategori ON menu.id_kategori = kategori.id_kategori";
+  return run($query);
+}
+
+function per_page($id){
+  $query = "SELECT * FROM menu WHERE id_menu = '$id'";
   return run($query);
 }

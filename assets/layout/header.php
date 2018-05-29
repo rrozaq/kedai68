@@ -20,6 +20,7 @@
   <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
   <link href="assets/css/owl.theme.green.css" rel="stylesheet">
   <link href="assets/css/animate.css" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
 
   <!-- =======================================================
