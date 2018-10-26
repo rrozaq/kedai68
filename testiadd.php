@@ -1,8 +1,8 @@
 <?php
 require_once 'system/core/init.php';
-$nama = $_POST['name'];
-$country = $_POST['country'];
-$pesan= $_POST['pesan'];
+$nama = addslashes($_POST['name']);
+$country = addslashes($_POST['country']);
+$pesan= addslashes($_POST['pesan']);
 
 $folder = "assets/testi/";
 $temp = $_FILES['foto']['tmp_name'];;
